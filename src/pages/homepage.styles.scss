@@ -1,0 +1,38 @@
+.homepage { 
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+
+    .welcome-section {
+        padding:100px 350px;
+    
+    .title {
+        display: flex;
+        justify-content: center;
+    }
+    
+   
+    .app-preview {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    
+    }
+}
+
+    .description-container {
+        background-color: #272826;
+        color: white;
+        padding:100px 350px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-end;
+        margin: 55px 150px;
+    }
+
+}
+

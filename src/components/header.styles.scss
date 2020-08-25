@@ -1,0 +1,43 @@
+.header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: #272826;
+    background: linear-gradient(0deg, rgba(39,40,38,1) 74%, rgba(87,87,87,1) 100%);
+    padding: 12px;
+   
+
+    .logo-container {
+        height: 200px;
+
+        .logo {
+            object-fit: contain;
+        }
+    }
+
+    .link-container { 
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+    }
+
+    .option {
+        color: #cfcfcf;
+        padding: 18px;
+        font-family: 'Libre Baskerville', serif;
+        font-size: 12px;
+        
+        &:hover {
+            color:white;
+            font-size: 12.2px;
+            transition-duration: 1s;
+        }
+    }
+
+}
+

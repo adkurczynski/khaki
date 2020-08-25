@@ -1,0 +1,33 @@
+.preview-item-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+
+
+    .image-container {
+        display: flex;
+        flex-flow: row;
+        align-content: center;
+        justify-content: center;
+        position: relative;
+        
+        img {
+            object-fit: cover;
+            width: 370px;
+            height: 500px;
+            margin: 0px 3px 3px 0;
+            border-radius: 2px;
+
+
+        
+        }
+
+        span {
+            position: absolute;
+            top: 420px;
+            color: white;
+            font-size: 50px;
+        }
+    }
+}
