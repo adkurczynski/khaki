@@ -5,8 +5,8 @@ import React from 'react';
 const WithSpinner = WrappedComponent => {
     const Spinner = ({ isLoading, ...otherProps }) => {
       return isLoading ? (
-        <div class='overlay'>
-          <div class='container'/>
+        <div className='overlay'>
+          <div className='container'/>
         </div>
       ) : (
         <WrappedComponent {...otherProps} />

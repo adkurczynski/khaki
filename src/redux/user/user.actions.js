@@ -50,3 +50,31 @@ export const signUpFailure = error => ({
   type: UserActionTypes.SIGN_UP_FAILURE,
   payload: error
 });
+
+export const addActivityStart = activity => ({
+  type: UserActionTypes.ADD_ACTIVITY_START,
+  payload: activity
+});
+
+export const addActivitySuccess =  () => ({
+  type: UserActionTypes.ADD_ACTIVITY_SUCCESS
+});
+
+export const addActivityFailure = error => ({
+  type: UserActionTypes.ADD_ACTIVITY_FAILURE,
+  payload: error
+});
+
+export const removeActivityStart = activity => ({
+  type: UserActionTypes.REMOVE_ACTIVITY_START,
+  payload: activity
+});
+
+export const removeActivityFailure = error => ({
+  type: UserActionTypes.REMOVE_ACTIVITY_FAILURE,
+  payload: error
+});
+
+export const removeActivitySuccess = () => ({
+  type: UserActionTypes.REMOVE_ACTIVITY_SUCCESS,
+});

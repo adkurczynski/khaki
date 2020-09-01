@@ -1,7 +1,7 @@
 import CollectionActionTypes from './collection.types';
 
 const INITIAL_STATE = {
-    collections: null,
+    activities: null,
     errorMessage: null,
     isFetching: null
 }
@@ -16,7 +16,7 @@ const collectionReducer = (state = INITIAL_STATE, action) => {
         case CollectionActionTypes.FETCH_COLLECTIONS_SUCCESS:
             return {
                 ...state,
-                collections: action.payload,
+                activities: action.payload,
                 isFetching: null,
                 errorMessage: null
             };

@@ -1,4 +1,4 @@
-import { takeLatest, put, all, call } from 'redux-saga/effects';
+import { takeLatest,  put, all, call } from 'redux-saga/effects';
 
 import UserActionTypes from './user.types';
 
@@ -8,14 +8,20 @@ import {
   signOutSuccess,
   signOutFailure,
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
+  addActivityFailure,
+  addActivitySuccess,
+  removeActivityFailure,
+  removeActivitySuccess
 } from './user.actions';
 
 import {
   auth,
   googleProvider,
   createUserProfileDocument,
-  getCurrentUser
+  getCurrentUser,
+  updateActivity,
+  removeActivity
 } from '../../firebase/firebase.utils';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -80,6 +86,32 @@ export function* signUp({ payload: { email, password, displayName } }) {
   }
 }
 
+export function* addActivity({ payload: activity } ) {
+  try { 
+    const userAuth  = yield getCurrentUser(); 
+
+    yield updateActivity( userAuth, activity);
+    yield put(addActivitySuccess())
+  }catch(error) {
+    yield put(addActivityFailure(error));
+    yield alert(error.message);
+  }
+}
+
+export function* eraseActivity({ payload: activity } ) {
+  try { 
+    const userAuth  = yield getCurrentUser(); 
+
+    yield removeActivity( userAuth, activity);
+    yield put(removeActivitySuccess())
+  }catch(error) {
+    yield put(removeActivityFailure(error));
+    yield alert(error.message);
+  }
+}
+
+
+
 export function* signInAfterSignUp({ payload: { user, additionalData } }) {
   yield getSnapshotFromUserAuth(user, additionalData);
 }
@@ -108,6 +140,15 @@ export function* onSignUpSuccess() {
   yield takeLatest(UserActionTypes.SIGN_UP_SUCCESS, signInAfterSignUp);
 }
 
+export function* onAddActivityStart() {
+  yield takeLatest(UserActionTypes.ADD_ACTIVITY_START, addActivity)
+}
+
+export function* onRemoveActivityStart(){
+  yield takeLatest(UserActionTypes.REMOVE_ACTIVITY_START, eraseActivity)
+}
+
+
 export function* userSagas() {
   yield all([
     call(onGoogleSignInStart),
@@ -115,6 +156,8 @@ export function* userSagas() {
     call(onCheckUserSession),
     call(onSignOutStart),
     call(onSignUpStart),
-    call(onSignUpSuccess)
+    call(onSignUpSuccess),
+    call(onAddActivityStart),
+    call(onRemoveActivityStart)
   ]);
 }

@@ -25,9 +25,30 @@
 
         span {
             position: absolute;
-            top: 420px;
+            top: 80%;
             color: white;
             font-size: 50px;
         }
     }
+}
+
+.user-activities {
+    
+    .image-container {
+       
+        img {
+            width: 150px;
+            height: 230px;
+            border-radius: 5px
+        }
+
+        span {
+            top: 80%;
+            font-size: 20px;
+
+        }
+    }
+
+    
+    
 }

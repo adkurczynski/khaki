@@ -1,10 +1,12 @@
 import { createSelector } from 'reselect';
 
-const selectCollection = state => state.collections;
+
+const selectCollection = state => state.collection;
+
 
 export const selectCollections = createSelector(
     [selectCollection],
-    collections => collections.activities
+    collection => collection.activities
 );
 
 export const selectIsCollectionFetching = createSelector (
@@ -16,3 +18,4 @@ export const selectIsCollectionLoaded = createSelector (
     [selectCollection],
     collections => !!collections.activities
 );
+

@@ -41,6 +41,49 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
   };
 
+  export const updateActivity = async ( userAuth, activity ) => {
+    if(!userAuth) return;
+
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+  
+    const snapShot = await userRef.get();
+
+    if (snapShot.exists) {
+    
+      try {
+        await userRef.update({
+          activities: firebase.firestore.FieldValue.arrayUnion(activity)
+        });
+      } catch (error) {
+        console.log('error adding activity', error.message);
+      }
+    }
+  
+    return userRef;
+  };
+
+  export const removeActivity = async (userAuth, activity) => {
+    if(!userAuth || !activity) return;
+    const userRef = firestore.doc(`users/${userAuth.uid}`);
+  
+    const snapShot = await userRef.get();
+ 
+
+    if (snapShot.exists) {
+    
+      try {
+        await userRef.update({
+          activities: firebase.firestore.FieldValue.arrayRemove(activity)
+        });
+      } catch (error) {
+        console.log('error removing activity', error.message);
+      }
+    }
+  
+    return userRef;
+  }
+  
+
   export const addCollectionsAndDocs = async (
     collectionKey,
     objectsToAdd

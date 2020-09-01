@@ -1,0 +1,9 @@
+.user-data-container { 
+    display: flex;
+    padding: 0 100px;
+
+    .user-data-part {
+        font-size: 50px;
+        padding: 0 75px;
+    }
+}
