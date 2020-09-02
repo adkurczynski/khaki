@@ -56,8 +56,9 @@ export const addActivityStart = activity => ({
   payload: activity
 });
 
-export const addActivitySuccess =  () => ({
-  type: UserActionTypes.ADD_ACTIVITY_SUCCESS
+export const addActivitySuccess =  activity => ({
+  type: UserActionTypes.ADD_ACTIVITY_SUCCESS,
+  payload: activity
 });
 
 export const addActivityFailure = error => ({
@@ -75,6 +76,7 @@ export const removeActivityFailure = error => ({
   payload: error
 });
 
-export const removeActivitySuccess = () => ({
+export const removeActivitySuccess = activity => ({
   type: UserActionTypes.REMOVE_ACTIVITY_SUCCESS,
+  payload: activity
 });

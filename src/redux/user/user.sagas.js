@@ -91,7 +91,7 @@ export function* addActivity({ payload: activity } ) {
     const userAuth  = yield getCurrentUser(); 
 
     yield updateActivity( userAuth, activity);
-    yield put(addActivitySuccess())
+    yield put(addActivitySuccess(activity))
   }catch(error) {
     yield put(addActivityFailure(error));
     yield alert(error.message);
@@ -103,7 +103,7 @@ export function* eraseActivity({ payload: activity } ) {
     const userAuth  = yield getCurrentUser(); 
 
     yield removeActivity( userAuth, activity);
-    yield put(removeActivitySuccess())
+    yield put(removeActivitySuccess(activity))
   }catch(error) {
     yield put(removeActivityFailure(error));
     yield alert(error.message);

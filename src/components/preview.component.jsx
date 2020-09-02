@@ -24,11 +24,12 @@ const Preview = ({collections, parent, addActivityStart, userActivities}) => {
         addActivityStart(event.target.title);
     }
 
+    console.log(parent)
     return (
         <div className={`preview ${parent}`}>
             <h2>Select things that interest you and match with others</h2>
             <div className='preview-container'>
-               { userActivities  ? (
+               { userActivities.length > 0 && parent === 'userOverview' ? (
                 Object.values(collections).filter((item) => !userActivities.includes(item.title)).map(({ id, title, url, category}) => (
                         <PreviewItem key={id} title={title} url={url} category={category} handleChange={handleChange} />
                     ))) : (

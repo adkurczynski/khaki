@@ -13,6 +13,7 @@ const UserOverview = ({currentUser}) => {
 
     const { displayName, age, activities, placeOfResidence } = currentUser;
 
+
     const handleChange = () => {
         showActivitiesComponent(!activitiesComponent);
     }

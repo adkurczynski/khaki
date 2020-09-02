@@ -29,6 +29,28 @@
             color: white;
             font-size: 50px;
         }
+
+        .remove-button {
+            display: none;
+
+        
+        }
+
+        .add-button {
+            display: flex;
+            position: absolute;
+            border: none;
+            background: inherit;
+            cursor: pointer;
+            
+            &:hover {
+                border: none;
+            }
+
+            &:focus {
+                display: none;
+            }
+        }
     }
 }
 
@@ -47,6 +69,30 @@
             font-size: 20px;
 
         }
+
+        .remove-button {
+            display: flex;
+            position: absolute;
+            border: none;
+            background: inherit;
+            cursor: pointer;
+
+            &:hover {
+                border: none;
+            }
+
+            &:focus {
+                display: none;
+            }
+            
+        }
+
+        .add-button {
+            display: none;
+
+        }
+
+    
     }
 
     

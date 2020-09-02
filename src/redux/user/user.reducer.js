@@ -19,6 +19,24 @@ const userReducer = (state = INITIAL_STATE, action) => {
         currentUser: null,
         error: null
       };
+    case UserActionTypes.REMOVE_ACTIVITY_SUCCESS:
+      
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          activities: state.currentUser.activities.filter(item => item !== action.payload)
+        },
+      
+      }
+    case UserActionTypes.ADD_ACTIVITY_SUCCESS:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          activities: state.currentUser.activities.concat(action.payload)
+        }
+      }
     case UserActionTypes.SIGN_IN_FAILURE:
     case UserActionTypes.SIGN_OUT_FAILURE:
     case UserActionTypes.SIGN_UP_FAILURE:

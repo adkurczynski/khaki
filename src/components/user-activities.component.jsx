@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import PreviewItem from './preview-item.component';
 
 import { selectCollections } from '../redux/collection/collection.selectors';
-import { removeActivityStart } from '../redux/user/user.actions'
+import { removeActivityStart } from '../redux/user/user.actions';
+
 
 import './user-activities.styles.scss';
 
@@ -19,7 +20,7 @@ const UserActivities = ({ activities, collections, removeActivityStart}) => {
     return(
         <div className='activities-container'>
             {activitiesArray.filter((item) => activities.includes(item.title)).map(({id, title, url, category})=>(
-                    <PreviewItem key={id} title={title} url={url} category={category} parent='user-activities' handleChange={handleChange}/>
+                <PreviewItem key={id} title={title} url={url} category={category} parent='user-activities' handleChange={handleChange}/>
             ))}
         </div>
     )
